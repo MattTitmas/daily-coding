@@ -1,1 +1,0 @@
-from day1028 import kaprekar
