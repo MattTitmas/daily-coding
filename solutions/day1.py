@@ -1,5 +1,6 @@
 import argparse
 
+
 def kaprekar(value: int, verbose: bool):
     stored_int = value
     current_step = 0
@@ -11,7 +12,6 @@ def kaprekar(value: int, verbose: bool):
             print(f'Step: {current_step}\t\t{descending} - {ascending} = {stored_int}')
         current_step += 1
     return current_step
-
 
 
 if __name__ == '__main__':
