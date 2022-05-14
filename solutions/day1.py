@@ -1,26 +1,23 @@
 import argparse
 
 
-def kaprekar(value: int, verbose: bool):
-    stored_int = value
-    current_step = 0
-    while stored_int != 6174:
-        ascending = "".join(sorted(list(str(stored_int))))
-        descending = ascending[::-1]
-        stored_int = int(descending) - int(ascending)
-        if verbose:
-            print(f'Step: {current_step}\t\t{descending} - {ascending} = {stored_int}')
-        current_step += 1
-    return current_step
+def add_to(numbers: list, value: int):
+    values_wanted = set()
+    for i in numbers:
+        if i in values_wanted:
+            return value - i, i
+        values_wanted.add(value - i)
+    return None, None
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Perform Kaprekar's procedure")
-    parser.add_argument("-value", type=int, required=True,
-                        help='value to perform the procedure on')
-    parser.add_argument("-v", default=False, action="store_true",
-                        help="make output verbose")
+    parser = argparse.ArgumentParser(description="Find elements in the list that sum to the value")
+    parser.add_argument('-value', type=int, default=17,
+                        help='value to sum to')
+    parser.add_argument('-list', nargs='+', type=int, default=[10, 15, 7, 3])
+    parser.add_argument('-v', default=False, action='store_true',
+                        help='make output verbose')
     args = parser.parse_args()
-    current = 0
-    steps = kaprekar(args.value, args.v)
-    print(f'{args.value} took {steps} steps to reach 6174')
+    combination = add_to(args.list, args.value)
+    print(f'The list {", ".join([str(i) for i in args.list])} can produce {args.value} '
+          f'with {combination[0]} + {combination[1]}')
