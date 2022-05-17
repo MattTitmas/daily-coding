@@ -35,8 +35,15 @@ Follow-up: what if you can't use division?
 [Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day2.py)
 <hr>
 
-#### Problem 2
+#### Problem 3
 Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s), which deserializes the string back into the tree.
 
 [Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day3.py)
+<hr>
+
+#### Problem 4
+
+Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.
+
+[Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day4.py)
 <hr>
