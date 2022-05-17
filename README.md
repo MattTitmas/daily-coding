@@ -34,3 +34,9 @@ Follow-up: what if you can't use division?
 
 [Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day2.py)
 <hr>
+
+#### Problem 2
+Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s), which deserializes the string back into the tree.
+
+[Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day3.py)
+<hr>
