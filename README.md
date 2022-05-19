@@ -47,3 +47,19 @@ Given an array of integers, find the first missing positive integer in linear ti
 
 [Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day4.py)
 <hr>
+
+#### Problem 5
+
+`cons(a, b)` constructs a pair, and `car(pair)` and `cdr(pair)` returns the first and last element of that pair. For example, `car(cons(3, 4))` returns 3, and `cdr(cons(3, 4))` returns 4.
+
+Given this implementation of cons:
+```
+def cons(a, b):
+    def pair(f):
+        return f(a, b)
+    return pair
+```
+Implement `car` and `cdr`.
+
+[Solution](https://github.com/MattTitmas/daily-coding/blob/main/solutions/day5.py)
+<hr>
