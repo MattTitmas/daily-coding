@@ -1,7 +1,7 @@
 from trees import *
 
 def serialize(root: Node):
-    serialized = str(len(root.val))+root.val
+    serialized = str(root.val)
     serialized += 'l' if root.left is not None else '_'
     serialized += 'r' if root.right is not None else '_'
     serialized += "("
@@ -17,10 +17,10 @@ def serialize(root: Node):
 
 
 def deserialize(serialized_string: str):
-    length_of_val = int(serialized_string[0])
-    val = serialized_string[1:1+length_of_val]
-    has_left_child = (serialized_string[1+length_of_val] == 'l')
-    has_right_child = (serialized_string[2 + length_of_val] == 'r')
+    index_of_bracket = serialized_string.index('(')
+    val = serialized_string[:index_of_bracket-2]
+    has_left_child = (serialized_string[index_of_bracket-2] == 'l')
+    has_right_child = (serialized_string[index_of_bracket-1] == 'r')
     left_child, right_child = None, None
     brackets_seen = 0
     left_end_index = 0
@@ -33,7 +33,7 @@ def deserialize(serialized_string: str):
                 left_end_index = i
                 break
     if has_left_child:
-        left_child = deserialize(serialized_string[4+length_of_val:left_end_index])
+        left_child = deserialize(serialized_string[index_of_bracket+1:left_end_index])
     if has_right_child:
         right_child = deserialize(serialized_string[left_end_index+2:-1])
 
@@ -42,4 +42,9 @@ def deserialize(serialized_string: str):
 
 if __name__ == '__main__':
     node = Node('root', Node('left', Node('left.left')), Node('right'))
+    print(serialize(node))
+    new_node = (deserialize(serialize(node)))
+
+    print(new_node)
+
     assert deserialize(serialize(node)).left.left.val == 'left.left'
