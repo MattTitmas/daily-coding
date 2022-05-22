@@ -1,9 +1,4 @@
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
+from trees import *
 
 def serialize(root: Node):
     serialized = str(len(root.val))+root.val
